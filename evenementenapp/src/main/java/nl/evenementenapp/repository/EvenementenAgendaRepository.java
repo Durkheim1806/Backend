@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import nl.evenementenapp.domain.EvenementenAgenda;
 
 @Repository
-public interface EvenementAgendaRepository extends CrudRepository<EvenementenAgenda, Long> {
+public interface EvenementenAgendaRepository extends CrudRepository<EvenementenAgenda, Long> {
 
 }

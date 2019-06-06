@@ -1,4 +1,4 @@
-package nl.evenementenapp.config.service;
+package nl.evenementenapp.service;
 
 
 import java.util.Optional;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import nl.evenementenapp.domain.Artiest;
-import nl.evenementenapp.repository.ArtiesRepository;
+import nl.evenementenapp.repository.ArtiestRepository;
 
 @Service
 @Transactional
@@ -17,8 +17,8 @@ public class ArtiestService {
 	@Autowired
 	private ArtiestRepository artiestRepository;
 	
-	public Artiest save(Arties artiest) {
-		return artiesRepository.save(arties);
+	public Artiest save(Artiest artiest) {
+		return artiestRepository.save(artiest);
 	}
 	
 	
