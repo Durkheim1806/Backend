@@ -1,12 +1,14 @@
 package nl.evenementenapp.domain;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Gebruiker {
@@ -24,9 +26,10 @@ public class Gebruiker {
 	private String wachtwoord;
 	
 	@ManyToMany
-	private ArrayList<Evenement> evenementenBezoeken;
+	private List<Evenement> evenementenBezoeken;
 	
-	private ArrayList<Gebruiker> vrienden;
+	@OneToMany
+	private List<Gebruiker> vrienden;
 
 	public String getNaam() {
 		return naam;
@@ -52,21 +55,23 @@ public class Gebruiker {
 		this.wachtwoord = wachtwoord;
 	}
 
-	public ArrayList<Evenement> getEvenementenBezoeken() {
+	public List<Evenement> getEvenementenBezoeken() {
 		return evenementenBezoeken;
 	}
 
-	public void setEvenementenBezoeken(ArrayList<Evenement> evenementenBezoeken) {
+	public void setEvenementenBezoeken(List<Evenement> evenementenBezoeken) {
 		this.evenementenBezoeken = evenementenBezoeken;
 	}
 
-	public ArrayList<Gebruiker> getVrienden() {
+	public List<Gebruiker> getVrienden() {
 		return vrienden;
 	}
 
-	public void setVrienden(ArrayList<Gebruiker> vrienden) {
+	public void setVrienden(List<Gebruiker> vrienden) {
 		this.vrienden = vrienden;
 	}
+
+	
 	
 	
 }

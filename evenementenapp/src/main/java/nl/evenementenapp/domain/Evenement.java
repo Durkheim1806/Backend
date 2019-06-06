@@ -2,12 +2,14 @@ package nl.evenementenapp.domain;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -22,14 +24,16 @@ public class Evenement {
 	}
 	
 	private String naam;
+	
+	@ManyToOne
 	private Locatie locatie;
 	private double prijs;
 	
 	@OneToMany
-	private ArrayList<Artiest> artiesten;
+	private List<Artiest> artiesten;
 	
 	@ManyToMany
-	private ArrayList<Gebruiker> bezoekers;
+	private List<Gebruiker> bezoekers;
 	
 	private LocalDate datum;
 	private String website;
@@ -58,21 +62,14 @@ public class Evenement {
 		this.prijs = prijs;
 	}
 
-	public ArrayList<Artiest> getArtiesten() {
+	public List<Artiest> getArtiesten() {
 		return artiesten;
 	}
 
-	public void setArtiesten(ArrayList<Artiest> artiesten) {
+	public void setArtiesten(List<Artiest> artiesten) {
 		this.artiesten = artiesten;
 	}
 
-	public ArrayList<Gebruiker> getBezoekers() {
-		return bezoekers;
-	}
-
-	public void setBezoekers(ArrayList<Gebruiker> bezoekers) {
-		this.bezoekers = bezoekers;
-	}
 
 	public LocalDate getDatum() {
 		return datum;
@@ -88,6 +85,14 @@ public class Evenement {
 
 	public void setWebsite(String website) {
 		this.website = website;
+	}
+
+	public List<Gebruiker> getBezoekers() {
+		return bezoekers;
+	}
+
+	public void setBezoekers(List<Gebruiker> bezoekers) {
+		this.bezoekers = bezoekers;
 	}
 	
 	
