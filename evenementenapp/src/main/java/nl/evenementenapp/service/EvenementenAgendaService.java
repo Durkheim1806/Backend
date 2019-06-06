@@ -1,4 +1,4 @@
-package nl.evenementenapp.config.service;
+package nl.evenementenapp.service;
 
 
 import java.util.Optional;

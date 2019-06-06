@@ -1,4 +1,4 @@
-package nl.evenementenapp.config.service;
+package nl.evenementenapp.service;
 
 import java.util.Optional;
 
@@ -9,8 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 import nl.evenementenapp.domain.Evenement;
 import nl.evenementenapp.repository.EvenementRepository;
 
-@Service;
-@Transactional;
+@Service
+@Transactional
 public class EvenementService {
 
 	@Autowired
