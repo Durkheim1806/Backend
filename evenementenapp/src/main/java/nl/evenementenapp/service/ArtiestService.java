@@ -17,6 +17,10 @@ public class ArtiestService {
 	@Autowired
 	private ArtiestRepository artiestRepository;
 	
+	public Iterable<Artiest> findAll() {
+		return artiestRepository.findAll();
+	}
+
 	public Artiest save(Artiest artiest) {
 		return artiestRepository.save(artiest);
 	}

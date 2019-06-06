@@ -1,4 +1,4 @@
-package nl.evenementenapp.evenementenapp;
+package nl.evenementenapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
