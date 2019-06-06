@@ -2,9 +2,9 @@ package nl.evenementenapp.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import nl.evenementenapp.domain.Artiest;
+import nl.evenementenapp.domain.Evenement;
 
 @Repository
-public interface ArtiestRepository extends CrudRepository<Artiest, Long> {
+public interface EvenementRepository extends CrudRepository<Evenement, Long> {
 
 }
