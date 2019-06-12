@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import nl.evenementenapp.domain.Evenement;
 import nl.evenementenapp.domain.Locatie;
 import nl.evenementenapp.repository.LocatieRepository;
 
@@ -18,6 +19,18 @@ public class LocatieService {
 	
 	public Locatie save(Locatie locatie) {
 		return locatieRepository.save(locatie);
+	}
+	
+	public Optional<Locatie> findById(long id) {
+		return locatieRepository.findById(id);
+	}
+	
+	public Iterable<Locatie> findAll() {
+		return locatieRepository.findAll();
+	}
+
+	public void deleteById(long id) {
+		locatieRepository.deleteById(id);
 	}
 	
 }
