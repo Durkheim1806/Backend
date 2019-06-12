@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import nl.evenementenapp.domain.Evenement;
 import nl.evenementenapp.domain.Gebruiker;
 import nl.evenementenapp.repository.GebruikerRepository;
 
@@ -20,4 +21,15 @@ public class GebruikerService {
 		return gebruikerRepository.save(gebruiker);
 	}
 	
+	public Optional<Gebruiker> findById(long id) {
+		return gebruikerRepository.findById(id);
+	}
+	
+	public Iterable<Gebruiker> findAll() {
+		return gebruikerRepository.findAll();
+	}
+
+	public void deleteById(long id) {
+		gebruikerRepository.deleteById(id);
+	}
 }
