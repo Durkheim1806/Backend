@@ -16,12 +16,21 @@ public class Locatie {
 		return id;
 	}
 	
+	private String naam;
+
 	private String gebouw;
 	private String Stad;
 	private int staanplaatsen;
 	private int zitplaatsen;
 	private String website;
 
+	public String getNaam() {
+		return naam;
+	}
+	public void setNaam(String naam) {
+		this.naam = naam;
+	}
+	
 	public String getGebouw() {
 		return gebouw;
 	}
