@@ -2,8 +2,11 @@ package nl.evenementenapp.domain;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,13 +33,37 @@ public class Evenement {
 	private double prijs;
 	
 	@OneToMany
-	private List<Artiest> artiesten;
+	private Set<Artiest> artiesten;
 	
 	@ManyToMany
 	private List<Gebruiker> bezoekers;
 	
+	@ManyToOne
+	private EvenementenAgenda agendaVanEvemenent;
+	
 	private LocalDate datum;
 	private String website;
+	
+	@Column(length = 10000)
+	private String toelichting;
+	
+	public Evenement() {}
+	public Evenement(String naam, Locatie locatie, LocalDate datum) {
+		this.naam = naam;
+		this.locatie = locatie;
+		this.datum = datum;
+	}
+
+	public Evenement(String naam, Locatie locatie, LocalDate datum, String toelichting) {
+		this(naam, locatie, datum);
+		this.toelichting = toelichting;
+	}
+	
+	public boolean addArtiest(Artiest artiest) {
+		if (artiesten == null)
+			artiesten = new HashSet<>();
+		return artiesten.add(artiest);
+	}
 
 	public String getNaam() {
 		return naam;
@@ -62,11 +89,11 @@ public class Evenement {
 		this.prijs = prijs;
 	}
 
-	public List<Artiest> getArtiesten() {
+	public Set<Artiest> getArtiesten() {
 		return artiesten;
 	}
 
-	public void setArtiesten(List<Artiest> artiesten) {
+	public void setArtiesten(Set<Artiest> artiesten) {
 		this.artiesten = artiesten;
 	}
 

@@ -1,5 +1,6 @@
 package nl.evenementenapp.domain;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import javax.persistence.Entity;
@@ -18,6 +19,11 @@ public class Artiest {
 	private String label;
 	private ArrayList<String> nummers;
 	private ArrayList<String> genre;
+	
+	public Artiest() {}
+	public Artiest(String naam) {
+		this.naam = naam;
+	}
 	
 	public long getId() {
 		return id;

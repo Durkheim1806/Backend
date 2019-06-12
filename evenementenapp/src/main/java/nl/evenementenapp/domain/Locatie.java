@@ -1,5 +1,7 @@
 package nl.evenementenapp.domain;
 
+import java.time.LocalDate;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,10 +21,18 @@ public class Locatie {
 	private String naam;
 
 	private String gebouw;
-	private String Stad;
+	private String stad;
 	private int staanplaatsen;
 	private int zitplaatsen;
 	private String website;
+	
+	public Locatie() {}
+	public Locatie(String naam, String stad, String website) {
+		this.naam = naam;
+		this.stad = stad;
+		this.website = website;
+	}
+
 
 	public String getNaam() {
 		return naam;
@@ -38,10 +48,10 @@ public class Locatie {
 		this.gebouw = gebouw;
 	}
 	public String getStad() {
-		return Stad;
+		return stad;
 	}
 	public void setStad(String stad) {
-		Stad = stad;
+		this.stad = stad;
 	}
 	public int getStaanplaatsen() {
 		return staanplaatsen;

@@ -14,8 +14,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
-
-
 @Entity
 public class Gebruiker {
 
@@ -31,6 +29,7 @@ public class Gebruiker {
 	private String gebruikersnaam;
 	private String wachtwoord;
 	private LocalDate geboortedatum;
+	private String woonplaats;
 	
 	@ManyToMany
 	private Set<Evenement> evenementenBezoeken;
@@ -40,6 +39,13 @@ public class Gebruiker {
 	
 	@OneToMany
 	private List<Gebruiker> vrienden;
+	
+	public Gebruiker() {}
+	public Gebruiker(String naam, String woonplaats, LocalDate geboortedatum) {
+		this.naam = naam;
+		this.woonplaats = woonplaats;
+		this.geboortedatum = geboortedatum;
+	}
 	
 	public boolean addEvenement(Evenement evenement) {
 		if (evenementenBezoeken == null)
