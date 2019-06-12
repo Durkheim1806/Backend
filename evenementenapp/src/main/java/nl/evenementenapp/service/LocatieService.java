@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import nl.evenementenapp.domain.Artiest;
 import nl.evenementenapp.domain.Evenement;
 import nl.evenementenapp.domain.Locatie;
 import nl.evenementenapp.repository.LocatieRepository;
@@ -31,6 +32,10 @@ public class LocatieService {
 
 	public void deleteById(long id) {
 		locatieRepository.deleteById(id);
+	}
+	
+	public Iterable<Locatie> findByNaam(String name) {
+		return locatieRepository.findByNaamContainingOrderByNaam(name);
 	}
 	
 }

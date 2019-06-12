@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -54,6 +55,8 @@ public class EvenementEndPoint {
 			Iterable<Evenement> evenementen = this.evenementService.findAll();
 			return evenementen;
 		}
+		
+		
 		
 		//curl -X DELETE http://localhost:8080/artiest/14
 		@DeleteMapping(path="{id}")

@@ -1,15 +1,20 @@
 package nl.evenementenapp.domain;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+
+
 
 @Entity
 public class Gebruiker {
@@ -25,12 +30,22 @@ public class Gebruiker {
 	private String naam;
 	private String gebruikersnaam;
 	private String wachtwoord;
+	private LocalDate geboortedatum;
 	
 	@ManyToMany
-	private List<Evenement> evenementenBezoeken;
+	private Set<Evenement> evenementenBezoeken;
+	
+//	@ManyToMany(fetch = FetchType.EAGER)
+//	private Set<Auto> autos = new HashSet<>();
 	
 	@OneToMany
 	private List<Gebruiker> vrienden;
+	
+	public boolean addEvenement(Evenement evenement) {
+		if (evenementenBezoeken == null)
+			evenementenBezoeken = new HashSet<>();
+		return evenementenBezoeken.add(evenement);
+	}
 
 	public String getNaam() {
 		return naam;
@@ -56,11 +71,11 @@ public class Gebruiker {
 		this.wachtwoord = wachtwoord;
 	}
 
-	public List<Evenement> getEvenementenBezoeken() {
+	public Set<Evenement> getEvenementenBezoeken() {
 		return evenementenBezoeken;
 	}
 
-	public void setEvenementenBezoeken(List<Evenement> evenementenBezoeken) {
+	public void setEvenementenBezoeken(Set<Evenement> evenementenBezoeken) {
 		this.evenementenBezoeken = evenementenBezoeken;
 	}
 
