@@ -62,17 +62,17 @@ public class EvenementService {
 		Locatie locatie2 = locatieService.save(new Locatie("Nelson Mandelapark", "Amsterdam", "n.v.t."));
 		Locatie locatie3 = locatieService.save(new Locatie("Het Twiske", "Amsterdam", "https://www.iamsterdam.com/nl/zien-en-doen/natuur/natuurgebieden/recreatiegebied-het-twiske"));
 		
-		Evenement strayCats = evenementRepository.save(new Evenement("Stray Cats", locatie, LocalDate.of(2019, 7, 1),			
+		Evenement strayCats = evenementRepository.save(new Evenement("Stray Cats", locatie, LocalDate.of(2019, 7, 1), "http://straycats.com/home/",			
 				"Voor het eerst in tien jaar komen de leden van de Amerikaanse rockabillyband Stray Cats weer bij elkaar. "
 				+ "Gitarist-zanger Brian Setzer, bassist Lee Rocker en drummer Slim Jim Phantom zullen 1 juli voor een éénmalige "
 				+ "show afreizen naar AFAS Live." ));
-		Evenement kwaku = evenementRepository.save(new Evenement("Kwaku Summer Festival", locatie2, LocalDate.of(2019, 7, 14),	
+		Evenement kwaku = evenementRepository.save(new Evenement("Kwaku Summer Festival", locatie2, LocalDate.of(2019, 7, 14), "https://kwakufestival.nl/",	
 				"Kwakoe begon in 1975 als kleinschalig voetbaltoernooi om de jeugd in de Bijlmermeer die niet op vakantie kon "
 				+ "gaan toch een leuke zomer te bezorgen. Al snel groeide Kwakoe uit tot een competitie waar niet alleen "
 				+ "gevoetbald werd, maar waar eten en drinken een belangrijke plaats innam. Tegenwoordig staat het festival "
 				+ "vooral bekend om de sfeer en zijn er naast het voetbal tal van andere activiteiten zoals debatten, lezingen,"
 				+ " dansworkshops, missverkiezingen en muziekoptredens."));
-		Evenement welcome = evenementRepository.save(new Evenement("Welcome to the future", locatie3, LocalDate.of(2019, 7, 20),			
+		Evenement welcome = evenementRepository.save(new Evenement("Welcome to the future", locatie3, LocalDate.of(2019, 7, 20), "https://welcometothefuture.nl/",			
 				"Welcome to the Future is een intiem en gemoedelijk festival. Kleine hoekjes met hangmatten en schommels zorgen "
 				+ "voor verkoeling en aan het water kun je heerlijk zitten of genieten van biologische burgers, vers fruit of mojito’s. "
 				+ "Op 8 verschillende podia staan nationale en internationale dj's voor je klaar. Of je nu een technokonijn, een hipster "
