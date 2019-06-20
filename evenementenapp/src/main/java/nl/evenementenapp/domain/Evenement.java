@@ -23,9 +23,6 @@ public class Evenement {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	long id;
 	
-	public long getId() {
-		return id;
-	}
 	
 	private String naam;
 	
@@ -67,6 +64,17 @@ public class Evenement {
 		return artiesten.add(artiest);
 	}
 
+	public long getId() {
+		return id;
+	}
+	
+	public EvenementenAgenda getAgendaVanEvemenent() {
+		return agendaVanEvemenent;
+	}
+	public void setAgendaVanEvemenent(EvenementenAgenda agendaVanEvemenent) {
+		this.agendaVanEvemenent = agendaVanEvemenent;
+	}
+	
 	public String getNaam() {
 		return naam;
 	}
