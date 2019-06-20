@@ -74,12 +74,7 @@ public class Evenement {
 	public void setAgendaVanEvemenent(EvenementenAgenda agendaVanEvemenent) {
 		this.agendaVanEvemenent = agendaVanEvemenent;
 	}
-	public String getToelichting() {
-		return toelichting;
-	}
-	public void setToelichting(String toelichting) {
-		this.toelichting = toelichting;
-	}
+	
 	public String getNaam() {
 		return naam;
 	}
