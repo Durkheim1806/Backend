@@ -37,4 +37,8 @@ public class GebruikerService {
 	public Iterable<Gebruiker> findByNaam(String name) {
 		return gebruikerRepository.findByNaamContainingOrderByNaam(name);
 	}
+	
+	public Optional<Gebruiker> findByGebruikersnaam(String gebruikersnaam) {
+		return gebruikerRepository.findByGebruikersnaam(gebruikersnaam);
+}
 }

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import nl.evenementenapp.domain.Artiest;
 import nl.evenementenapp.domain.Evenement;
 import nl.evenementenapp.domain.EvenementenAgenda;
@@ -28,6 +29,7 @@ public class EvenementEndPoint {
 	@Autowired
 	EvenementService evenementService;
 		
+	// create
 	@PostMapping
 	public ResponseEntity<Evenement> aanmaken(@RequestBody Evenement e) { 
 		if (e.getId() != 0) {
@@ -36,6 +38,7 @@ public class EvenementEndPoint {
 		return new ResponseEntity<Evenement>(evenementService.save(e), HttpStatus.OK); 
 	}
 	
+	// retrieve
 	//curl -X GET http://localhost:8080/evenement/query?name=Z
 		@GetMapping(path="query")  
 		public Iterable<Evenement> selectieOpvragen(@RequestParam(
@@ -56,6 +59,13 @@ public class EvenementEndPoint {
 			return evenementen;
 		}
 		
+		// Retrieve
+		@GetMapping("getEvenement") 	
+		public ResponseEntity<Iterable<Evenement>> apiGetAll() {
+			return new ResponseEntity<Iterable<Evenement>>(
+					evenementService.findAll(), 
+					HttpStatus.OK);
+		}
 		
 		
 		//curl -X DELETE http://localhost:8080/artiest/14

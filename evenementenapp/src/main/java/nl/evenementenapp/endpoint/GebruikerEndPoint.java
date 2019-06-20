@@ -39,6 +39,12 @@ public class GebruikerEndPoint {
 		return new ResponseEntity<Gebruiker>(gebruikerService.save(g), HttpStatus.OK); 
 	}
 	
+	//@RequestBody String naam, @RequestBody String adres, @RequestBody String sportstring) {
+	@PostMapping("aanmakenGebruiker")
+	public ResponseEntity<Gebruiker> apiCreate(@RequestBody Gebruiker gebruiker) {
+		return new ResponseEntity<Gebruiker>(gebruikerService.save(gebruiker), HttpStatus.OK);
+	}
+	
 	//curl -X GET http://localhost:8080/gebruiker/query?name=Z
 	@RequestMapping(value="query", method=RequestMethod.GET)  
 	public Iterable<Gebruiker> selectieOpvragen(@RequestParam(
@@ -82,6 +88,18 @@ public class GebruikerEndPoint {
 			gebruikerService.save(gebruiker),
 			HttpStatus.OK);
 			}
+	
+	@PutMapping("login") 
+	public ResponseEntity<Gebruiker> login(@RequestBody Gebruiker gebruiker) {
+		Optional<Gebruiker> oAccount = gebruikerService.findByGebruikersnaam(gebruiker.getGebruikersnaam());
+		Gebruiker oldAccount = null;
+		if (oAccount.isPresent() 
+				&& oAccount.get().getWachtwoord().equals(gebruiker.getWachtwoord())) {
+			oldAccount = oAccount.get();
+		} else {return new ResponseEntity<Gebruiker>(HttpStatus.UNAUTHORIZED);}
+		
+		return new ResponseEntity<Gebruiker>(oldAccount, HttpStatus.OK);
+}
 	
 	//curl -X DELETE http://localhost:8080/artiest/14
 	@DeleteMapping(path="{id}")
