@@ -8,6 +8,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -32,7 +33,7 @@ public class Evenement {
 	@OneToMany
 	private Set<Artiest> artiesten;
 	
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	private List<Gebruiker> bezoekers;
 	
 	@ManyToOne
@@ -51,9 +52,10 @@ public class Evenement {
 		this.datum = datum;
 	}
 
-	public Evenement(String naam, Locatie locatie, LocalDate datum, String toelichting) {
+	public Evenement(String naam, Locatie locatie, LocalDate datum, String website, String toelichting ) {
 		this(naam, locatie, datum);
 		this.toelichting = toelichting;
+		this.website = website;
 	}
 	
 	public boolean addArtiest(Artiest artiest) {
@@ -131,10 +133,16 @@ public class Evenement {
 		return bezoekers;
 	}
 
+	
 	public void setBezoekers(List<Gebruiker> bezoekers) {
 		this.bezoekers = bezoekers;
 	}
-	
+	public String getToelichting() {
+		return toelichting;
+	}
+	public void setToelichting(String toelichting) {
+		this.toelichting = toelichting;
+	}
 	
 	
 

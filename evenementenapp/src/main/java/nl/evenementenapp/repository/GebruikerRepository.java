@@ -1,5 +1,7 @@
 package nl.evenementenapp.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -12,4 +14,6 @@ public interface GebruikerRepository extends CrudRepository<Gebruiker, Long>{
 	
 	Iterable<Gebruiker> findByNaamContaining(String naam);
 	Iterable<Gebruiker> findByNaamContainingOrderByNaam(String naam);
+	
+	Optional<Gebruiker> findByGebruikersnaam(String gebruikersnaam);
 }
